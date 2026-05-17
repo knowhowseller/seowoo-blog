@@ -1,12 +1,13 @@
 export const SITE = {
   name:        '서우 성장연구소',
-  description: '작심삼일을 이겨내는 법, S=BTA 성공 방법론, 비전·목표·행동 관리 전략을 매일 연구합니다.',
+  description: '진정성과 믿음으로 함께 성장합니다. S=BTA(성공=믿음×생각×행동) 방법론으로 비전부터 오늘 행동까지 연결하는 전략을 연구합니다.',
+  slogan:      'We grow together!',
   url:         process.env.NEXT_PUBLIC_SITE_URL ?? 'https://seowoo.kr',
   ogImage:     '/og-default.png',
   twitterHandle: '',
   author:      '서우(Seowoo)',
   locale:      'ko_KR',
-  appUrl:      'https://app.seowoo.kr',
+  appUrl:      'https://visiondream.vercel.app/',
   kakaoChannel: 'http://pf.kakao.com/_xkmeqX',
   keywords: [
     '작심삼일 극복', '목표관리 앱', '자기계발 방법', '비전보드 만들기',

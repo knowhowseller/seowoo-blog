@@ -9,7 +9,7 @@ git init
 git add .
 git commit -m "init: seowoo blog"
 git branch -M main
-git remote add origin https://github.com/[내 계정명]/seowoo-blog.git
+git remote add origin https://github.com/knowhowseller/seowoo-blog.git
 git push -u origin main
 ```
 
@@ -23,7 +23,7 @@ git push -u origin main
 
 | 이름 | 값 |
 |------|----|
-| `NEXT_PUBLIC_SITE_URL` | Vercel이 생성하는 URL (예: https://seowoo-blog.vercel.app) |
+| `NEXT_PUBLIC_SITE_URL` | `https://seowoo-blog.vercel.app` |
 | `OPENAI_API_KEY` | sk-... (OpenAI 키) |
 
 6. "Deploy" 클릭 → 2~3분 후 배포 완료

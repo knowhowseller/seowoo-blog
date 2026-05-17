@@ -16,7 +16,7 @@ export default function BlogPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-seowoo-green mb-2">블로그</h1>
+      <h1 className="text-3xl font-bold text-seowoo-navy mb-2">블로그</h1>
       <p className="text-gray-500 mb-8">
         작심삼일 극복, S=BTA 방법론, 비전 설계 실전 가이드
       </p>
@@ -25,7 +25,7 @@ export default function BlogPage() {
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-10">
           {tags.map(({ tag, count }) => (
-            <Link key={tag} href={`/tag/${encodeURIComponent(tag)}`} className="tag hover:bg-seowoo-green hover:text-white transition-colors">
+            <Link key={tag} href={`/tag/${encodeURIComponent(tag)}`} className="tag hover:bg-seowoo-navy hover:text-white transition-colors">
               #{tag} <span className="opacity-60">({count})</span>
             </Link>
           ))}

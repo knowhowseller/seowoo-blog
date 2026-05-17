@@ -7,9 +7,11 @@ interface Props {
 }
 
 export default function PostCard({ post, featured = false }: Props) {
+  const href = `/blog/${encodeURIComponent(post.slug)}`
+
   if (featured) {
     return (
-      <Link href={`/blog/${post.slug}`}
+      <Link href={href}
         className="card p-8 flex flex-col md:flex-row gap-6 group">
         <div className="flex-1">
           <div className="flex flex-wrap gap-2 mb-3">
@@ -28,7 +30,7 @@ export default function PostCard({ post, featured = false }: Props) {
   }
 
   return (
-    <Link href={`/blog/${post.slug}`} className="card p-6 flex flex-col group">
+    <Link href={href} className="card p-6 flex flex-col group">
       <div className="flex flex-wrap gap-1 mb-3">
         {post.tags.slice(0, 2).map((tag) => (
           <span key={tag} className="tag text-xs">{tag}</span>

@@ -9,14 +9,15 @@ import Link from 'next/link'
 interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }))
+  return getAllSlugs().map((slug) => ({ slug: encodeURIComponent(slug) }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const post = getPostBySlug(slug)
   if (!post) return {}
-  const url = `${SITE.url}/blog/${post.slug}`
+  const url = `${SITE.url}/blog/${encodeURIComponent(post.slug)}`
   return {
     title:       post.title,
     description: post.description,
@@ -39,7 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = await params
+  const { slug: rawSlug } = await params
+  const slug = decodeURIComponent(rawSlug)
   const post = getPostBySlug(slug)
   if (!post) notFound()
 
@@ -60,7 +62,7 @@ export default async function PostPage({ params }: Props) {
           __html: JSON.stringify(breadcrumbSchema([
             { name: '홈',    url: SITE.url },
             { name: '블로그', url: `${SITE.url}/blog` },
-            { name: post.title, url: `${SITE.url}/blog/${post.slug}` },
+            { name: post.title, url: `${SITE.url}/blog/${encodeURIComponent(post.slug)}` },
           ])),
         }}
       />
@@ -92,17 +94,17 @@ export default async function PostPage({ params }: Props) {
         </p>
 
         {/* Content */}
-        <div className="prose prose-lg max-w-none prose-headings:text-seowoo-green prose-a:text-seowoo-green">
+        <div className="prose prose-lg max-w-none prose-headings:text-seowoo-navy prose-a:text-seowoo-navy">
           <MDXRemote source={post.content} />
         </div>
 
         {/* App CTA inline */}
-        <div className="mt-12 p-6 bg-seowoo-green/5 border border-seowoo-green/20 rounded-2xl text-center">
-          <p className="font-bold text-seowoo-green text-lg mb-2">
-            비전을 나무로 키워보세요
+        <div className="mt-12 p-6 bg-seowoo-base/40 border border-seowoo-blue/20 rounded-2xl text-center">
+          <p className="font-bold text-seowoo-navy text-lg mb-2">
+            S = 믿음(B) × 생각(T) × 행동(A)
           </p>
           <p className="text-gray-600 text-sm mb-4">
-            S=BTA 방법론을 앱으로 매일 실천하면 달라집니다. 30일 무료 체험.
+            서우 비전관리 앱으로 오늘부터 직접 실천하세요. 30일 무료 체험.
           </p>
           <a href={SITE.appUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
             무료로 시작하기 →
@@ -115,7 +117,7 @@ export default async function PostPage({ params }: Props) {
             <h2 className="text-xl font-bold text-seowoo-green mb-6">함께 읽으면 좋은 글</h2>
             <div className="grid sm:grid-cols-2 gap-4">
               {related.map((p) => (
-                <Link key={p.slug} href={`/blog/${p.slug}`}
+                <Link key={p.slug} href={`/blog/${encodeURIComponent(p.slug)}`}
                   className="card p-4 hover:border-seowoo-green/30">
                   <p className="font-semibold text-gray-800 text-sm line-clamp-2">{p.title}</p>
                   <p className="text-xs text-gray-400 mt-1">{p.readingTime} 소요</p>

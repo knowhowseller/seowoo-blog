@@ -8,11 +8,13 @@ module.exports = {
     extend: {
       colors: {
         seowoo: {
-          green:  '#2D6A4F',
-          light:  '#52B788',
-          cream:  '#F8F4EF',
-          brown:  '#5C4033',
-          gold:   '#D4A017',
+          navy:  '#144e8c',   // Main Color 5% — 신뢰
+          blue:  '#439AE3',   // Sub Color 25%
+          teal:  '#005c70',   // Sub Color
+          base:  '#C9E4FA',   // Base Color 70%
+          gold:  '#f7931e',   // Point Color — 로고 구슬
+          dark:  '#353535',   // 보조 텍스트
+          soft:  '#e8f3fd',   // 연한 배경용
         },
       },
       fontFamily: {
@@ -21,10 +23,11 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            color: '#2D3748',
-            a: { color: '#2D6A4F', '&:hover': { color: '#52B788' } },
-            h2: { color: '#2D6A4F' },
-            h3: { color: '#2D6A4F' },
+            color: '#353535',
+            a: { color: '#144e8c', '&:hover': { color: '#439AE3' } },
+            h2: { color: '#144e8c' },
+            h3: { color: '#144e8c' },
+            strong: { color: '#144e8c' },
           },
         },
       },

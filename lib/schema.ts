@@ -16,7 +16,7 @@ export function blogPostSchema(post: PostMeta) {
       url:     SITE.url,
       logo:    { '@type': 'ImageObject', url: `${SITE.url}/logo.png` },
     },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${post.slug}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}/blog/${encodeURIComponent(post.slug)}` },
     keywords:         post.tags.join(', '),
   }
 }

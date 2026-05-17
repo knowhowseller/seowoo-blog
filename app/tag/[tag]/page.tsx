@@ -30,10 +30,10 @@ export default async function TagPage({ params }: Props) {
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
       <div className="flex items-center gap-3 mb-2">
-        <Link href="/blog" className="text-sm text-gray-400 hover:text-seowoo-green">← 블로그</Link>
+        <Link href="/blog" className="text-sm text-gray-400 hover:text-seowoo-navy">← 블로그</Link>
       </div>
-      <h1 className="text-3xl font-bold text-seowoo-green mb-2">
-        <span className="text-seowoo-light">#</span>{tag}
+      <h1 className="text-3xl font-bold text-seowoo-navy mb-2">
+        <span className="text-seowoo-gold">#</span>{tag}
       </h1>
       <p className="text-gray-500 mb-10">총 {posts.length}개의 글</p>
 
